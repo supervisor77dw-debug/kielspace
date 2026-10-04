@@ -1,0 +1,26 @@
+/* KIELSPACE – Raumvolumen in den Größenkarten */
+.size-volume{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  margin:-2px 0 10px;
+  padding:6px 9px;
+  border-radius:999px;
+  background:rgba(0,180,166,.09);
+  color:#087f77;
+  font-size:12px;
+  line-height:1.2;
+  font-weight:800;
+  letter-spacing:0;
+}
+.volume-note{
+  max-width:1200px;
+  margin:10px auto 0;
+  color:#7c8997;
+  font-size:12px;
+  line-height:1.5;
+}
+@media(max-width:760px){
+  .size-volume{font-size:12px;margin-bottom:9px}
+  .volume-note{font-size:12px}
+}
