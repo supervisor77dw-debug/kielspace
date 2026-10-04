@@ -83,3 +83,28 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
 document.addEventListener('click',e=>{
   if(siteNav?.classList.contains('menu-open') && !siteNav.contains(e.target)) closeMenu();
 });
+
+
+// Raumgrößen-Umschalter m² / m³
+const unitButtons = document.querySelectorAll('.unit-btn');
+const sizeCards = document.querySelectorAll('.size-card[data-sqm][data-cbm]');
+
+function setSizeUnit(unit){
+  sizeCards.forEach(card=>{
+    const value = card.querySelector('.size-value');
+    const volume = card.querySelector('.size-volume');
+    if(value) value.textContent = unit === 'cbm' ? card.dataset.cbm : card.dataset.sqm;
+    if(volume){
+      volume.textContent = unit === 'cbm'
+        ? `≈ ${card.dataset.sqm} Grundfläche`
+        : `≈ ${card.dataset.cbm} Stauraum`;
+    }
+  });
+  unitButtons.forEach(button=>{
+    const active = button.dataset.unit === unit;
+    button.classList.toggle('active',active);
+    button.setAttribute('aria-pressed',String(active));
+  });
+}
+
+unitButtons.forEach(button=>button.addEventListener('click',()=>setSizeUnit(button.dataset.unit)));
