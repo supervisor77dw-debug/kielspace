@@ -79,14 +79,21 @@
     <div><div class="eyebrow">EINFACH PASSEND</div><h2>Wie viel Raum brauchst du?</h2></div>
     <p>Vier Beispiele zur Orientierung – der Größenberater hilft bei der Einordnung.</p>
   </div>
-  <div class="mode-switch"><button class="mode active">Privat</button><button class="mode">Business</button></div>
-  <div class="size-grid">
-    <button class="size-card active"><span class="tag">BELIEBT</span><small>KOMPAKT</small><b>2 m²</b><span class="size-volume">≈ 5,6 m³ Stauraum</span><p>Akten, Reifen, Kisten</p><strong>ca. 58 €<em>/Monat inkl. MwSt.*</em></strong></button>
-    <button class="size-card"><small>ALLROUND</small><b>5 m²</b><span class="size-volume">≈ 14,0 m³ Stauraum</span><p>1–2 Zimmer / Umzug</p><strong>ca. 125 €<em>/Monat inkl. MwSt.*</em></strong></button>
-    <button class="size-card"><small>MEHR PLATZ</small><b>8 m²</b><span class="size-volume">≈ 22,4 m³ Stauraum</span><p>Wohnung / Gewerbe</p><strong>ca. 184 €<em>/Monat inkl. MwSt.*</em></strong></button>
-    <button class="size-card"><small>BUSINESS</small><b>15 m²</b><span class="size-volume">≈ 42,0 m³ Stauraum</span><p>Waren, Archiv, Inventar</p><strong>ca. 300 €<em>/Monat inkl. MwSt.*</em></strong></button>
+  <div class="size-controls">
+    <div class="mode-switch" aria-label="Nutzung"><button class="mode active">Privat</button><button class="mode">Business</button></div>
+    <div class="unit-switch" role="group" aria-label="Raumgröße anzeigen als">
+      <span>Anzeige</span>
+      <button class="unit-btn active" type="button" data-unit="sqm" aria-pressed="true">m²</button>
+      <button class="unit-btn" type="button" data-unit="cbm" aria-pressed="false">m³</button>
+    </div>
   </div>
-  <p class="volume-note">Volumenangaben auf Basis von ca. 2,80 m Raumhöhe.</p>
+  <div class="size-grid">
+    <button class="size-card active" data-sqm="2 m²" data-cbm="5,6 m³"><span class="tag">BELIEBT</span><small>KOMPAKT</small><b class="size-value">2 m²</b><span class="size-volume">≈ 5,6 m³ Stauraum</span><span class="box-equivalent">≈ 35 Standard-Umzugskartons</span><p>Akten, Reifen, Kisten</p><strong>ca. 58 €<em>/Monat inkl. MwSt.*</em></strong></button>
+    <button class="size-card" data-sqm="5 m²" data-cbm="14,0 m³"><small>ALLROUND</small><b class="size-value">5 m²</b><span class="size-volume">≈ 14,0 m³ Stauraum</span><span class="box-equivalent">≈ 90 Standard-Umzugskartons</span><p>1–2 Zimmer / Umzug</p><strong>ca. 125 €<em>/Monat inkl. MwSt.*</em></strong></button>
+    <button class="size-card" data-sqm="8 m²" data-cbm="22,4 m³"><small>MEHR PLATZ</small><b class="size-value">8 m²</b><span class="size-volume">≈ 22,4 m³ Stauraum</span><span class="box-equivalent">≈ 140 Standard-Umzugskartons</span><p>Wohnung / Gewerbe</p><strong>ca. 184 €<em>/Monat inkl. MwSt.*</em></strong></button>
+    <button class="size-card" data-sqm="15 m²" data-cbm="42,0 m³"><small>BUSINESS</small><b class="size-value">15 m²</b><span class="size-volume">≈ 42,0 m³ Stauraum</span><span class="box-equivalent">≈ 265 Standard-Umzugskartons</span><p>Waren, Archiv, Inventar</p><strong>ca. 300 €<em>/Monat inkl. MwSt.*</em></strong></button>
+  </div>
+  <p class="volume-note">Volumen auf Basis von ca. 2,80 m Raumhöhe. Kartonangaben sind praxisnahe Richtwerte für Standard-Umzugskartons und übliche Stapelung.</p>
   <div class="space-advisor">
     <div class="advisor-copy">
       <span class="eyebrow">GRÖSSENBERATER</span>
