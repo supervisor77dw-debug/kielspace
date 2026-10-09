@@ -44,21 +44,29 @@ export const operationsSections: readonly ContentSection[] = [
   {
     title: "Digitales Betriebskonzept",
     paragraphs: [
-      "KIELSPACE wird als weitgehend automatisierter Self-Storage-Betrieb vorbereitet.",
+      "KIELSPACE wird als weitgehend automatisierter Self-Storage-Betrieb vorbereitet. Der operative Zielprozess reicht von der ersten Anfrage über Buchung, Vertrag, Zahlung und Zugang bis zur laufenden Verwaltung und zum Auszug.",
+      "Die eigene KIELSPACE-Website bleibt die Marken-, Nutzer- und Vermarktungsoberfläche. Operative Funktionen sollen über eine zentrale Betriebssoftware sowie API- und Webhook-Schnittstellen angebunden werden. Dadurch bleibt die Kundenerfahrung in der eigenen Marke, während Verfügbarkeit, Preise, Verträge, Zahlungen und Statusänderungen zentral verarbeitet werden können.",
     ],
   },
   {
     title: "Software-Vorvalidierung",
     paragraphs: [
-      "Derzeit wird Stora als mögliche zentrale Betriebsplattform praktisch getestet.",
-      "Ziel ist eine Architektur, bei der die eigene KIELSPACE-Website die Marken-, SEO- und Nutzeroberfläche bildet und das operative Backend über geeignete Schnittstellen angebunden wird.",
+      "Stora wird derzeit als mögliche zentrale Betriebsplattform in einem Testaccount praktisch geprüft. Bereits angesehen wurden CRM, Kontakte, Leads und Deals, Aufgaben, automatisierte E-Mail-Prozesse, Preismanagement, Dynamic Pricing, Buchungs- und Kundenprozesse, Rechnungs- und Mahnwesen, Kundenportal sowie Reporting.",
+      "Der Entwicklerbereich mit Public API und Webhooks ist im Testaccount sichtbar. Für die praktische API-Prüfung wurde eine höhere Testfreigabe angefragt. Ziel ist, vor einer finalen Systementscheidung nicht nur Funktionsbeschreibungen zu vergleichen, sondern die tatsächlich benötigten End-to-End-Prozesse praktisch zu validieren.",
     ],
   },
   {
-    title: "Operative Vorvalidierung",
+    title: "Operative Vorvalidierung über den Parkierungsbetrieb",
     paragraphs: [
-      "Es wird geprüft, wesentliche digitale Prozesse bereits im bestehenden Parkierungsbetrieb praktisch einzusetzen. Dadurch können Buchungs-, Zahlungs-, CRM-, Kommunikations- und Verwaltungsprozesse bereits vor dem eigentlichen Self-Storage-Start unter realen Bedingungen getestet werden.",
-      "Die daraus entstehenden Erfahrungswerte sollen systematisch dokumentiert und später auch gegenüber Finanzierungspartnern und Investoren verwendet werden.",
+      "Zusätzlich wird geprüft, Teile der späteren Software- und Prozessarchitektur bereits im bestehenden Parkierungsbetrieb einzusetzen. Damit können CRM, Buchung, Zahlung, Kundenkommunikation und Verwaltungsabläufe bereits vor dem Self-Storage-Start unter realen Bedingungen getestet werden.",
+      "Die daraus entstehenden Kennzahlen und Praxiserfahrungen sollen systematisch dokumentiert werden. Relevante Größen sind insbesondere Leads, Conversion, Zahlungsquote, Mahnfälle, manueller Supportaufwand, Automatisierungsgrad und Bearbeitungszeiten. Diese Daten können später als zusätzlicher Nachweis der operativen Vorbereitung gegenüber Banken und Investoren dienen.",
+    ],
+  },
+  {
+    title: "Vorvermarktung und professioneller Lease-up",
+    paragraphs: [
+      "Die Vermarktung soll nicht erst mit Fertigstellung beginnen. Die technische Website-Struktur, Interessentenregistrierung und spätere CRM-Anbindung werden deshalb bereits vor dem eigentlichen Eröffnungszeitpunkt vorbereitet.",
+      "Damit entsteht ein strukturierter Vorvermietungsprozess mit eigener Lead-Basis. Das Wirtschaftlichkeitsmodell trennt bewusst einen konservativen Bankfall von einem professionellen Betreiberfall, um diese operative Vorbereitung nachvollziehbar abzubilden, ohne sie zur Voraussetzung der Grundtragfähigkeit zu machen.",
     ],
   },
 ];
