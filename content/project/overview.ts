@@ -25,5 +25,12 @@ export const projectOverview = {
       description:
         "Bereits angestoßene Arbeitspakete, externe Validierungen, offene Entscheidungen und nächste Meilensteine.",
     },
+    {
+      href: "/projekt/website",
+      number: "04",
+      title: "KIELSPACE Website · vollständiger Entwurf",
+      description:
+        "Aktueller vollständiger Entwicklungsstand der späteren KIELSPACE-Kundenwebsite mit Raumgrößen, Preislogik, Visualisierungen, Anlieferung, Buchungsprozess und Kundenerlebnis.",
+    },
   ],
 } as const;
