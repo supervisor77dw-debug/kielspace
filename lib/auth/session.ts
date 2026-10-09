@@ -4,11 +4,14 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
+import { projectRoles, type ProjectRole } from "./users";
+
 export const SESSION_COOKIE_NAME = "kielspace_project_session";
 const SESSION_LIFETIME_SECONDS = 60 * 60 * 8;
 
-type SessionPayload = {
-  subject: string;
+export type ProjectSession = {
+  user: string;
+  role: ProjectRole;
   expiresAt: number;
 };
 
@@ -28,9 +31,13 @@ function sign(value: string) {
     .digest("base64url");
 }
 
-export function createSessionToken() {
-  const payload: SessionPayload = {
-    subject: "shared-investor-access",
+export function createSessionToken(
+  user: string,
+  role: ProjectRole,
+) {
+  const payload: ProjectSession = {
+    user,
+    role,
     expiresAt: Math.floor(Date.now() / 1000) + SESSION_LIFETIME_SECONDS,
   };
   const encodedPayload = Buffer.from(JSON.stringify(payload)).toString(
@@ -39,11 +46,13 @@ export function createSessionToken() {
   return `${encodedPayload}.${sign(encodedPayload)}`;
 }
 
-export function verifySessionToken(token: string | undefined) {
-  if (!token) return false;
+export function readSessionToken(
+  token: string | undefined,
+): ProjectSession | null {
+  if (!token) return null;
 
   const [encodedPayload, providedSignature] = token.split(".");
-  if (!encodedPayload || !providedSignature) return false;
+  if (!encodedPayload || !providedSignature) return null;
 
   const expectedSignature = sign(encodedPayload);
   const provided = Buffer.from(providedSignature);
@@ -52,28 +61,40 @@ export function verifySessionToken(token: string | undefined) {
     provided.length !== expected.length ||
     !timingSafeEqual(provided, expected)
   ) {
-    return false;
+    return null;
   }
 
   try {
     const payload = JSON.parse(
       Buffer.from(encodedPayload, "base64url").toString("utf8"),
-    ) as SessionPayload;
-    return (
-      payload.subject === "shared-investor-access" &&
-      payload.expiresAt > Math.floor(Date.now() / 1000)
-    );
+    ) as ProjectSession;
+    if (
+      typeof payload.user !== "string" ||
+      payload.user.length === 0 ||
+      !projectRoles.includes(payload.role) ||
+      typeof payload.expiresAt !== "number" ||
+      payload.expiresAt <= Math.floor(Date.now() / 1000)
+    ) {
+      return null;
+    }
+    return payload;
   } catch {
-    return false;
+    return null;
   }
+}
+
+export function verifySessionToken(token: string | undefined) {
+  return readSessionToken(token) !== null;
 }
 
 export async function requireProjectSession() {
   const cookieStore = await cookies();
   const token = cookieStore.get(SESSION_COOKIE_NAME)?.value;
-  if (!verifySessionToken(token)) {
+  const session = readSessionToken(token);
+  if (!session) {
     redirect("/projekt/login");
   }
+  return session;
 }
 
 export const sessionCookieOptions = {

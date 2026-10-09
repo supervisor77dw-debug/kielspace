@@ -12,13 +12,21 @@ export function LoginForm() {
   return (
     <form className="login-form" action={formAction}>
       <label>
+        Benutzername
+        <input
+          name="username"
+          autoComplete="username"
+          required
+          autoFocus
+        />
+      </label>
+      <label>
         Projektpasswort
         <input
           name="password"
           type="password"
           autoComplete="current-password"
           required
-          autoFocus
         />
       </label>
       {state.error ? (

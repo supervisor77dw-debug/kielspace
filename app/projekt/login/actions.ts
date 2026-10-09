@@ -1,6 +1,5 @@
 "use server";
 
-import { timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -9,44 +8,40 @@ import {
   SESSION_COOKIE_NAME,
   sessionCookieOptions,
 } from "@/lib/auth/session";
+import { authenticateProjectUser } from "@/lib/auth/users";
 
 export type LoginState = {
   error: string;
 };
 
-function secureTextEqual(value: string, expected: string) {
-  const valueBuffer = Buffer.from(value);
-  const expectedBuffer = Buffer.from(expected);
-  return (
-    valueBuffer.length === expectedBuffer.length &&
-    timingSafeEqual(valueBuffer, expectedBuffer)
-  );
-}
-
 export async function login(
   _previousState: LoginState,
   formData: FormData,
 ): Promise<LoginState> {
-  const configuredPassword = process.env.PROJECT_ACCESS_PASSWORD;
-  if (!configuredPassword) {
-    console.error("PROJECT_ACCESS_PASSWORD is not configured.");
+  const username = formData.get("username");
+  const password = formData.get("password");
+  if (typeof username !== "string" || typeof password !== "string") {
+    return { error: "Bitte gib Benutzername und Passwort ein." };
+  }
+
+  let projectUser;
+  try {
+    projectUser = authenticateProjectUser(username, password);
+  } catch (error) {
+    console.error("Project access is not configured correctly.", error);
     return {
       error: "Der Projektzugang ist derzeit nicht konfiguriert.",
     };
   }
 
-  const password = formData.get("password");
-  if (
-    typeof password !== "string" ||
-    !secureTextEqual(password, configuredPassword)
-  ) {
-    return { error: "Das eingegebene Passwort ist nicht korrekt." };
+  if (!projectUser) {
+    return { error: "Benutzername oder Passwort ist nicht korrekt." };
   }
 
   const cookieStore = await cookies();
   cookieStore.set(
     SESSION_COOKIE_NAME,
-    createSessionToken(),
+    createSessionToken(projectUser.username, projectUser.role),
     sessionCookieOptions,
   );
   redirect("/projekt");

@@ -6,7 +6,7 @@ Projektvorschau und serverseitig geschütztem Projektbereich.
 ## Lokal starten
 
 1. `.env.example` als `.env.local` kopieren.
-2. Sichere Werte für `PROJECT_ACCESS_PASSWORD` und
+2. Sichere Werte für `PROJECT_ACCESS_USERS` und
    `PROJECT_SESSION_SECRET` setzen.
 3. `npm install`
 4. `npm run dev`
@@ -25,7 +25,8 @@ funktionieren sie auch in Windows-Workspaces mit einem `&` im Pfad.
 
 ## Umgebungsvariablen
 
-- `PROJECT_ACCESS_PASSWORD` – gemeinsames Passwort für Phase 1
+- `PROJECT_ACCESS_USERS` – JSON-Liste serverseitig geprüfter Benutzer mit
+  `username`, `password` und `role`
 - `PROJECT_SESSION_SECRET` – mindestens 32 Zeichen für signierte Sessions
 - `LEAD_WEBHOOK_URL` – optionaler serverseitiger Endpunkt für Interessenten
 - `LEAD_WEBHOOK_TOKEN` – optionales Bearer-Token für den Lead-Endpunkt
@@ -37,6 +38,8 @@ still verworfen.
 ## Sicherheit und Veröffentlichung
 
 - Projekt-Sessions werden serverseitig geprüft.
+- Signierte Sessions enthalten Benutzername und Rolle. Unterstützte Rollen:
+  `owner`, `editor`, `investor`, `bank` und `partner`.
 - Das Session-Cookie ist `httpOnly`, `sameSite=strict` und in Produktion
   `secure`.
 - Alle Projekt-Routen liefern `noindex`-Header und private
