@@ -1,9 +1,9 @@
 import type { ContentSection } from "./types";
 
 export const operatingChain = [
-  "Interessent",
-  "Lead",
-  "Auswahl",
+  "Website",
+  "Lead / CRM",
+  "Auswahl / Preis",
   "Buchung",
   "Vertrag",
   "Zahlung",
@@ -12,31 +12,51 @@ export const operatingChain = [
   "Auszug",
 ] as const;
 
-export const operatingComponents = [
-  "eigene KIELSPACE-Website",
-  "digitales Lead-Management",
+export const operationsKpis = [
+  { value: "24/7", label: "Zugang", detail: "digital und kontrolliert" },
+  { value: "Digital First", label: "Kundenprozess", detail: "durchgängig vorbereitet" },
+  { value: "API / Webhooks", label: "Schnittstellen", detail: "Freischaltung im Test ausstehend" },
+  {
+    value: "Automatisiert",
+    label: "Low-Staff-Betrieb",
+    detail: "weitgehend digital organisiert",
+  },
+] as const;
+
+export const systemConnections = [
   "CRM",
-  "automatisierte Kundenkommunikation",
-  "Online-Buchung",
-  "digitale Vertragsprozesse",
-  "automatisierte Abrechnung und Zahlungen",
-  "Mahn- und Sperrprozesse",
-  "elektronische Zugangskontrolle",
-  "Dynamic Pricing",
-  "Reporting und Kennzahlen",
-  "API- und Webhook-Anbindung",
+  "Payment",
+  "Zutritt",
+  "Reporting",
+  "API / Webhooks",
 ] as const;
 
 export const validatedSoftwareAreas = [
-  "CRM mit Kontakten, Leads und Deals",
-  "Aufgaben- und Aktivitätenverwaltung",
-  "automatisierte E-Mail-Prozesse",
-  "Buchungs- und Kundenprozesse",
-  "Preismanagement und Dynamic Pricing",
-  "Rechnungs- und Mahnwesen",
-  "Kundenportal",
-  "Reporting",
-  "Public API und Webhooks",
+  { area: "CRM / Leads / Deals", status: "Geprüft", kind: "complete" },
+  { area: "E-Mail-Automation", status: "Geprüft", kind: "complete" },
+  { area: "Preismanagement / Dynamic Pricing", status: "Geprüft", kind: "complete" },
+  { area: "Buchungslogik", status: "Geprüft", kind: "complete" },
+  { area: "Kundenportal", status: "Geprüft", kind: "complete" },
+  { area: "Reporting", status: "Geprüft", kind: "complete" },
+  {
+    area: "Public API / Webhooks",
+    status: "Freischaltung / Test ausstehend",
+    kind: "awaiting",
+  },
+  {
+    area: "Zutrittssystem",
+    status: "Finale Auswahl offen",
+    kind: "review",
+  },
+] as const;
+
+export const parkingValidationChain = [
+  "Reale Kunden",
+  "CRM",
+  "Zahlung",
+  "Kommunikation",
+  "Kennzahlen",
+  "Übertragung auf Self Storage",
 ] as const;
 
 export const operationsSections: readonly ContentSection[] = [
@@ -45,20 +65,6 @@ export const operationsSections: readonly ContentSection[] = [
     paragraphs: [
       "KIELSPACE wird als weitgehend automatisierter Self-Storage-Betrieb vorbereitet. Der Zielprozess reicht von der ersten Anfrage über Auswahl, Buchung, Vertrag, Zahlung und Zugang bis zur laufenden Verwaltung und zum Auszug.",
       "Die eigene KIELSPACE-Website bleibt die Marken-, Nutzer- und Vermarktungsoberfläche. Operative Funktionen sollen über eine zentrale Betriebssoftware mit API- und Webhook-Schnittstellen angebunden werden. Verfügbarkeit, Preise, Verträge, Zahlungen und Statusänderungen können dadurch zentral verarbeitet werden, ohne die Kundenerfahrung aus der eigenen Marke herauszulösen.",
-    ],
-  },
-  {
-    title: "Software-Vorvalidierung",
-    paragraphs: [
-      "Stora wird derzeit als mögliche zentrale Betriebsplattform praktisch getestet. Bereits geprüft wurden CRM, Leads und Deals, Aufgaben, automatisierte E-Mail-Prozesse, Buchungs- und Kundenprozesse, Preismanagement, Dynamic Pricing, Rechnungs- und Mahnwesen, Kundenportal und Reporting.",
-      "Der Entwicklerbereich mit Public API und Webhooks ist im Testaccount sichtbar. Für die praktische Schnittstellenprüfung wurde eine höhere Testfreigabe angefragt. Ziel ist, vor einer finalen Systementscheidung nicht nur Funktionslisten, sondern die tatsächlich benötigten End-to-End-Prozesse zu validieren.",
-    ],
-  },
-  {
-    title: "Operative Vorvalidierung",
-    paragraphs: [
-      "Geprüft wird außerdem, Teile der späteren Software- und Prozessarchitektur bereits im bestehenden Parkierungsbetrieb einzusetzen. Damit könnten CRM, Buchung, Zahlung, Kundenkommunikation und Verwaltungsabläufe vor dem eigentlichen Self-Storage-Start unter realen Bedingungen erprobt werden.",
-      "Die dabei entstehenden Kennzahlen sollen strukturiert dokumentiert werden. Relevant sind insbesondere Leads, Conversion, Zahlungsquote, Mahnfälle, manueller Supportaufwand, Automatisierungsgrad und Bearbeitungszeiten. Damit entsteht vor Eröffnung ein zusätzlicher operativer Erfahrungsnachweis.",
     ],
   },
   {

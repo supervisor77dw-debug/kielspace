@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { ProjectKpiStrip } from "@/components/project/project-kpi-strip";
 import { projectOverview } from "@/content/project/overview";
 
 export default function ProjectOverviewPage() {
@@ -10,6 +11,10 @@ export default function ProjectOverviewPage() {
         <h1>{projectOverview.title}</h1>
         <p>{projectOverview.introduction}</p>
       </section>
+      <ProjectKpiStrip
+        items={projectOverview.kpis}
+        label="Projektkennzahlen"
+      />
       <section className="project-entry-grid" aria-label="Projektbereiche">
         {projectOverview.entries.map((entry) => (
           <Link href={entry.href} key={entry.href}>

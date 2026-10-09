@@ -1,7 +1,8 @@
 # KIELSPACE Website
 
 Next.js-Vorschauseite für KIELSPACE mit öffentlicher, standortneutraler
-Projektvorschau und serverseitig geschütztem Projektbereich.
+Projektvorschau und serverseitig geschütztem Investoren- und
+Projektmemorandum.
 
 ## Lokal starten
 
@@ -22,6 +23,7 @@ funktionieren sie auch in Windows-Workspaces mit einem `&` im Pfad.
 - `/projekt/markt` – Projekt und Markt
 - `/projekt/betriebskonzept` – Self Storage und Betriebskonzept
 - `/projekt/projektstand` – Projektstand und Umsetzung
+- `/projekt/website` – geschützter vollständiger Kundenwebsite-Entwurf
 
 ## Umgebungsvariablen
 

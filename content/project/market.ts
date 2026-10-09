@@ -3,19 +3,109 @@ import type { ContentSection } from "./types";
 export const marketIntroduction =
   "KIELSPACE verbindet einen professionell vorbereiteten Markteintritt mit bewusst konservativen Bewertungsannahmen. Die bisherige Analyse zeigt einen etablierten europäischen Self-Storage-Markt, einen weiterhin weniger durchdrungenen deutschen Markt und für Kiel ein plausibles Nachfrage- und Preisumfeld.";
 
+export const germanyDevelopment = [
+  {
+    label: "Belegung",
+    previous: "75,0 %",
+    current: "76,3 %",
+    previousWidth: 75,
+    currentWidth: 76.3,
+  },
+  {
+    label: "Durchschnittsmiete",
+    previous: "292 €/m²/Jahr",
+    current: "302 €/m²/Jahr",
+    previousWidth: 73,
+    currentWidth: 75.5,
+  },
+  {
+    label: "Erlös je verfügbarer Fläche",
+    previous: "219 €/m²/Jahr",
+    current: "231 €/m²/Jahr",
+    previousWidth: 73,
+    currentWidth: 77,
+  },
+] as const;
+
+export const germanMarketScale = [
+  { value: "2,92 Mio. m²", label: "Vermietbare Fläche" },
+  { value: "1.394", label: "Standorte" },
+  { value: "65", label: "Standorte in der Pipeline" },
+  { value: "28", label: "davon im Bau" },
+] as const;
+
+export const germanDemandReserve = [
+  {
+    value: "52,1 %",
+    label: "kennen Self Storage noch nicht",
+    width: 52.1,
+  },
+  {
+    value: "68,4 %",
+    label: "können keinen Standort in ihrer Nähe benennen",
+    width: 68.4,
+  },
+] as const;
+
+export const europeanPriceBenchmarks = [
+  {
+    label: "KIELSPACE Bewertungsmiete",
+    value: "19,50 €",
+    detail: "netto/Monat",
+    width: 72.9,
+    project: true,
+  },
+  {
+    label: "Niederlande 2025",
+    value: "20,25 €",
+    detail: "243 €/Jahr",
+    width: 75.7,
+    project: false,
+  },
+  {
+    label: "Deutschland 2025",
+    value: "24,33 €",
+    detail: "292 €/Jahr",
+    width: 91,
+    project: false,
+  },
+  {
+    label: "Frankreich 2025",
+    value: "24,50 €",
+    detail: "294 €/Jahr",
+    width: 91.6,
+    project: false,
+  },
+  {
+    label: "Europa 2025",
+    value: "26,05 €",
+    detail: "312,56 €/Jahr",
+    width: 97.4,
+    project: false,
+  },
+  {
+    label: "Irland 2025",
+    value: "26,75 €",
+    detail: "321 €/Jahr",
+    width: 100,
+    project: false,
+  },
+] as const;
+
+export const ukReferenceMarket = [
+  { value: "+5 %", label: "Bestandswachstum" },
+  { value: "67,5 Mio. sq ft", label: "Gesamtbestand" },
+  { value: "79,6 %", label: "Mature-store occupancy" },
+  { value: "94,2 %", label: "Online Booking" },
+  { value: "2,6", label: "Mitarbeiter je Standort" },
+] as const;
+
 export const marketSections: readonly ContentSection[] = [
   {
     title: "Projektprofil",
     paragraphs: [
       "KIELSPACE entwickelt ein modernes, weitgehend digitalisiertes Self-Storage-Konzept für den Kieler Markt. Marke, Website, Betreiberarchitektur, Herstellerplanung, Wirtschaftlichkeitsrechnung und Finanzierungsunterlagen sind bereits weit fortgeschritten.",
       "Der spätere Markteintritt soll deshalb nicht als erstmaliger Betriebsversuch erfolgen, sondern auf Basis vorbereiteter Prozesse, mehrerer externer Flächen- und Systemvalidierungen sowie einer bereits vor Eröffnung aufgebauten digitalen Vermarktungsstruktur.",
-    ],
-  },
-  {
-    title: "Marktumfeld und Preispositionierung",
-    paragraphs: [
-      "Self Storage ist in Europa als eigenständige Immobilien- und Betreiberklasse etabliert. Reifere Märkte wie Großbritannien und Irland dienen KIELSPACE als Plausibilitäts- und Potenzialbenchmark, nicht als direkte Kiel-Prognose.",
-      "Die derzeitige KIELSPACE-Bewertungsmiete von 19,50 € netto je m² und Monat liegt unter dem zuletzt ausgewerteten deutschen Durchschnitt und deutlich unter den Vergleichswerten reiferer europäischer Märkte. Die Wirtschaftlichkeit basiert damit nicht auf einem aggressiven Preisansatz.",
     ],
   },
   {

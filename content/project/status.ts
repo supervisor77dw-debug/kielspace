@@ -3,6 +3,67 @@ import type { ProjectStatusItem } from "./types";
 export const statusIntroduction =
   "KIELSPACE befindet sich in einer fortgeschrittenen Vorbereitungs- und Vorvalidierungsphase. Markt, Flächen, Herstellerlösungen, digitale Betriebsprozesse, Finanzierung und Vermarktung sind bereits substanziell bearbeitet. Die verbleibenden Schritte betreffen vor allem finale Anbieterentscheidungen, behördliche Rückmeldungen, technische Detailvalidierungen und die anschließende Umsetzung.";
 
+export const projectWorkstreams = [
+  {
+    title: "Markt & Positionierung",
+    status: "complete",
+    label: "Fundiert",
+    detail: "Marke, Kiel-Analyse und Deutschland-/Europa-Benchmark liegen vor.",
+  },
+  {
+    title: "Fläche & Ausbau",
+    status: "review",
+    label: "Validiert / in Prüfung",
+    detail: "Drei Planungen bestätigen die Fläche; System- und Fachdetails werden finalisiert.",
+  },
+  {
+    title: "Software & Betrieb",
+    status: "in_progress",
+    label: "In Validierung",
+    detail: "End-to-End-Prozesse sind konzipiert und zentrale PMS-Funktionen praktisch geprüft.",
+  },
+  {
+    title: "Finanzierung & Unterlagen",
+    status: "in_progress",
+    label: "In Bearbeitung",
+    detail: "Wirtschaftlichkeitsmodell sowie Investoren- und Bankunterlagen werden fortgeschrieben.",
+  },
+  {
+    title: "Genehmigung & Ausführung",
+    status: "awaiting",
+    label: "Rückmeldung / nächste Phase",
+    detail: "Bauvoranfrage ist registriert; Ausführungsplanung folgt auf die Grundsatzentscheidungen.",
+  },
+] as const;
+
+export const projectRoadmap = [
+  { label: "Marktanalyse", status: "complete" },
+  { label: "Marke", status: "complete" },
+  { label: "Herstellerplanung", status: "complete" },
+  { label: "Website", status: "in_progress" },
+  { label: "PMS-Test", status: "in_progress" },
+  { label: "Finanzierung", status: "in_progress" },
+  { label: "Genehmigung", status: "awaiting" },
+  { label: "Ausführungsplanung", status: "next" },
+  { label: "Pre-Marketing", status: "in_progress" },
+  { label: "Eröffnung", status: "next" },
+] as const;
+
+export const preparedProjectAssets = [
+  "Drei Herstellerplanungen",
+  "Flächenvalidierung",
+  "Konkretes Storage-System-Angebot",
+  "Marktanalyse Kiel",
+  "Deutschland-/Europa-Benchmark",
+  "Wirtschaftlichkeitsmodell",
+  "Investoren-/Bankmemorandum",
+  "Vollständige Kundenwebsite",
+  "Geschütztes Investorenportal",
+  "PMS-Praxistest",
+  "Zutrittssystemvergleich",
+  "Registrierte Bauvoranfrage",
+] as const;
+
 export const projectStatus: readonly ProjectStatusItem[] = [
   { area: "Marke & Positionierung", status: "complete", label: "Abgeschlossen", detail: "KIELSPACE, Grunddesign, Positionierung und digitale Markenarchitektur definiert.", updatedAt: "2026-10-09" },
   { area: "Domain & digitale Projektplattform", status: "in_progress", label: "In Umsetzung", detail: "kielspace.de ist reserviert; öffentliche Vorschau und geschützter Projektbereich sind technisch vorbereitet. Produktivschaltung erst nach Freigabe.", updatedAt: "2026-10-09" },

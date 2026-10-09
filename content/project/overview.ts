@@ -1,8 +1,35 @@
 export const projectOverview = {
-  eyebrow: "Geschützter Projektbereich",
-  title: "KIELSPACE Projektdokumentation",
+  eyebrow: "Geschütztes Investment- und Projektmemorandum",
+  title: "KIELSPACE · Investoren- & Projektportal",
   introduction:
-    "KIELSPACE befindet sich in einer fortgeschrittenen Vorbereitungs- und Vorvalidierungsphase. Markt, Flächen, Herstellerlösungen, Wirtschaftlichkeit, digitale Betriebsprozesse, Finanzierung und Vermarktung werden parallel entwickelt und dokumentiert. Der geschützte Bereich bündelt die für Finanzierungspartner, Investoren und Projektpartner relevanten Arbeitsstände.",
+    "Markt, Wirtschaftlichkeit, Betriebsmodell und Umsetzungsstand eines weit fortgeschritten vorbereiteten Self-Storage-Projekts in Kiel.",
+  kpis: [
+    {
+      value: "1.686 m²",
+      label: "Vermietbare Bankfläche",
+      detail: "konservative Modellbasis",
+    },
+    {
+      value: "3",
+      label: "Herstellerplanungen",
+      detail: "unabhängige Flächenvalidierung",
+    },
+    {
+      value: "19,50 €/m²",
+      label: "Bewertungsmiete",
+      detail: "netto je Monat",
+    },
+    {
+      value: "85 %",
+      label: "Modellbelegung",
+      detail: "stabilisierter Ansatz",
+    },
+    {
+      value: "24/7",
+      label: "Betriebskonzept",
+      detail: "digitaler Zugang",
+    },
+  ],
   entries: [
     {
       href: "/projekt/markt",
