@@ -15,7 +15,7 @@ export default function MarketPage() {
     <main className="project-main">
       <ProjectPageHeading
         eyebrow="PROJEKT & MARKT"
-        title="Wachsender deutscher Markt. Konservative Projektannahmen. Professionell vorbereiteter Markteintritt."
+        title="Wachsender Markt. Konservative Annahmen. Professionell vorbereitet."
         introduction={marketIntroduction}
       />
 
