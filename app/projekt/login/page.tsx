@@ -14,8 +14,8 @@ export default function ProjectLoginPage() {
         <p className="eyebrow dark">GESCHÜTZTER BEREICH</p>
         <h1>Projektzugang</h1>
         <p>
-          Dieser Bereich enthält vertrauliche Informationen zum Projektstand,
-          Markt und Betriebskonzept.
+          Geschützter Zugang für Investoren, finanzierende Institute und
+          Projektpartner.
         </p>
         <LoginForm />
       </section>

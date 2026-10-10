@@ -12,6 +12,11 @@ export const projectRoles = [
 
 export type ProjectRole = (typeof projectRoles)[number];
 
+const externalRoleLabels: Partial<Record<ProjectRole, string>> = {
+  investor: "Investor",
+  bank: "Bank / Prüfung",
+};
+
 type ProjectUser = {
   username: string;
   password: string;
@@ -34,17 +39,23 @@ function secureTextEqual(value: string, expected: string) {
   );
 }
 
-function getConfiguredUsers() {
-  const configuredUsers = process.env.PROJECT_ACCESS_USERS;
+function parseConfiguredUsers(
+  variableName: "PROJECT_ACCESS_USERS" | "PROJECT_EXTERNAL_ACCESS_USERS",
+  required: boolean,
+) {
+  const configuredUsers = process.env[variableName];
   if (!configuredUsers) {
-    throw new Error("PROJECT_ACCESS_USERS is not configured.");
+    if (required) {
+      throw new Error(`${variableName} is not configured.`);
+    }
+    return [];
   }
 
   let parsed: unknown;
   try {
     parsed = JSON.parse(configuredUsers);
   } catch {
-    throw new Error("PROJECT_ACCESS_USERS must contain valid JSON.");
+    throw new Error(`${variableName} must contain valid JSON.`);
   }
 
   if (
@@ -62,18 +73,30 @@ function getConfiguredUsers() {
     )
   ) {
     throw new Error(
-      "PROJECT_ACCESS_USERS must contain users with username, password, and a supported role.",
+      `${variableName} must contain users with username, password, and a supported role.`,
     );
   }
 
-  const normalizedUsernames = parsed.map((user) =>
+  return parsed;
+}
+
+function getConfiguredUsers() {
+  const users = [
+    ...parseConfiguredUsers("PROJECT_ACCESS_USERS", true),
+    ...parseConfiguredUsers("PROJECT_EXTERNAL_ACCESS_USERS", false),
+  ];
+  const normalizedUsernames = users.map((user) =>
     user.username.toLocaleLowerCase("de-DE"),
   );
   if (new Set(normalizedUsernames).size !== normalizedUsernames.length) {
-    throw new Error("PROJECT_ACCESS_USERS contains duplicate usernames.");
+    throw new Error("Configured project users contain duplicate usernames.");
   }
 
-  return parsed;
+  return users;
+}
+
+export function getExternalRoleLabel(role: ProjectRole) {
+  return externalRoleLabels[role] ?? null;
 }
 
 export function authenticateProjectUser(username: string, password: string) {

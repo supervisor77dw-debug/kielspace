@@ -550,6 +550,18 @@ a {
   outline-color: var(--yellow);
 }
 
+.project-account {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-account > span {
+  color: #aebbc7;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
 .project-header form button {
   padding: 8px 12px;
   color: #c1ccd6;
@@ -1776,6 +1788,10 @@ a {
     order: 3;
     justify-content: space-between;
     overflow-x: visible;
+  }
+
+  .project-account {
+    margin-left: auto;
   }
 
   .project-entry-grid {
