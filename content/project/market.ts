@@ -27,6 +27,20 @@ export const germanyDevelopment = [
   },
 ] as const;
 
+export const historicalMarketDevelopment = [
+  { year: "2022", occupancy: "76,0 %", occupancyWidth: 76, rent: "289 €", rentWidth: 92.6 },
+  { year: "2023", occupancy: "74,0 %", occupancyWidth: 74, rent: "281,37 €", rentWidth: 90.2 },
+  { year: "2024", occupancy: "76,7 %", occupancyWidth: 76.7, rent: "312 €", rentWidth: 100 },
+  { year: "2025", occupancy: "75,0 %", occupancyWidth: 75, rent: "292 €", rentWidth: 93.6 },
+  { year: "2026", occupancy: "76,3 %", occupancyWidth: 76.3, rent: "302 €", rentWidth: 96.8 },
+] as const;
+
+export const historicalMarketArea = [
+  { year: "2024", value: "2,075 Mio. m²", width: 71.1 },
+  { year: "2025", value: "2,395 Mio. m²", width: 82 },
+  { year: "2026", value: "2,920 Mio. m²", width: 100 },
+] as const;
+
 export const germanMarketScale = [
   { value: "2,92 Mio. m²", label: "Vermietbare Fläche" },
   { value: "1.394", label: "Standorte" },

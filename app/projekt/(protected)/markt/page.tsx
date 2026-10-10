@@ -5,6 +5,8 @@ import {
   germanDemandReserve,
   germanMarketScale,
   germanyDevelopment,
+  historicalMarketArea,
+  historicalMarketDevelopment,
   marketIntroduction,
   marketSections,
   ukReferenceMarket,
@@ -20,6 +22,93 @@ export default function MarketPage() {
       />
 
       <div className="market-visuals">
+        <figure className="data-panel historical-panel">
+          <figcaption>
+            <span className="section-kicker">CHART A1 · DEUTSCHLAND 2022–2026</span>
+            <h2>Operative Resilienz Deutschland 2022–2026</h2>
+          </figcaption>
+          <div className="historical-series">
+            <div className="historical-series-block">
+              <h3>Belegung <span>in Prozent</span></h3>
+              <div className="historical-rows">
+                {historicalMarketDevelopment.map((item) => (
+                  <div className="historical-row" key={`${item.year}-occupancy`}>
+                    <span>{item.year}</span>
+                    <div className="historical-track" aria-hidden="true">
+                      <span style={{ width: `${item.occupancyWidth}%` }} />
+                    </div>
+                    <strong>{item.occupancy}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="historical-series-block">
+              <h3>Durchschnittliche Nettomiete <span>je vermietetem m² / Jahr</span></h3>
+              <div className="historical-rows">
+                {historicalMarketDevelopment.map((item) => (
+                  <div className="historical-row" key={`${item.year}-rent`}>
+                    <span>{item.year}</span>
+                    <div className="historical-track rent" aria-hidden="true">
+                      <span style={{ width: `${item.rentWidth}%` }} />
+                    </div>
+                    <strong>{item.rent}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="historical-insights">
+            <strong>Stabiler Belegungskorridor trotz wachsendem Angebot.</strong>
+            <span>Das Mietniveau liegt 2026 wieder über dem Niveau von 2022.</span>
+          </div>
+          <p className="source-note">
+            Quellen: FEDESSA / CBRE European Self Storage Industry Report 2022,
+            2023, 2024 und 2025; CBRE / Verband deutscher Self Storage
+            Unternehmen, Branchenreport 2026.
+          </p>
+          <p className="methodology-note">
+            Die Jahreswerte stammen aus den jeweiligen Branchenreports.
+            Stichprobe und Marktgrundlage können sich zwischen den Erhebungsjahren
+            verändern; die Zeitreihe dient der Einordnung der Marktentwicklung
+            und ist keine vollständig harmonisierte Panelreihe.
+          </p>
+        </figure>
+
+        <figure className="data-panel historical-area-panel">
+          <figcaption>
+            <span className="section-kicker">CHART A2 · DEUTSCHLAND 2024–2026</span>
+            <h2>Deutscher Markt wächst substanziell</h2>
+          </figcaption>
+          <div className="area-growth-callouts">
+            <div><strong>+41 %</strong><span>Marktfläche 2024–2026</span></div>
+            <div><strong>+22 %</strong><span>Marktfläche 2025–2026</span></div>
+          </div>
+          <div className="area-development">
+            {historicalMarketArea.map((item) => (
+              <div className="area-row" key={item.year}>
+                <span>{item.year}</span>
+                <div className="historical-track" aria-hidden="true">
+                  <span style={{ width: `${item.width}%` }} />
+                </div>
+                <strong>{item.value}</strong>
+              </div>
+            ))}
+          </div>
+          <p className="historical-conclusion">
+            Starkes Angebotswachstum bei weiterhin stabiler Belegung unterstreicht
+            die zunehmende Etablierung der Asset- und Betreiberklasse in Deutschland.
+          </p>
+          <p className="source-note">
+            Quelle: CBRE / Verband deutscher Self Storage Unternehmen,
+            Branchenreport 2026; FEDESSA / CBRE European Self Storage Industry
+            Report 2024 und 2025.
+          </p>
+          <p className="methodology-note">
+            Die Entwicklung ist eine Markteinordnung und keine automatische
+            Nachfrage- oder Prognoseableitung für einzelne Projekte oder Kiel.
+          </p>
+        </figure>
+
         <figure className="data-panel development-chart">
           <figcaption>
             <span className="section-kicker">CHART A · DEUTSCHLAND</span>
