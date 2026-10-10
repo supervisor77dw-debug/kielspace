@@ -4,7 +4,6 @@ import {
   europeanPriceBenchmarks,
   germanDemandReserve,
   germanMarketScale,
-  germanyDevelopment,
   historicalMarketArea,
   historicalMarketDevelopment,
   marketIntroduction,
@@ -24,7 +23,7 @@ export default function MarketPage() {
       <div className="market-visuals">
         <figure className="data-panel historical-panel">
           <figcaption>
-            <span className="section-kicker">CHART A1 · DEUTSCHLAND 2022–2026</span>
+            <span className="section-kicker">CHART 01 · HISTORISCHE ENTWICKLUNG DEUTSCHLAND</span>
             <h2>Operative Resilienz Deutschland 2022–2026</h2>
           </figcaption>
           <div className="historical-series">
@@ -76,7 +75,7 @@ export default function MarketPage() {
 
         <figure className="data-panel historical-area-panel">
           <figcaption>
-            <span className="section-kicker">CHART A2 · DEUTSCHLAND 2024–2026</span>
+            <span className="section-kicker">CHART 02 · MARKTWACHSTUM DEUTSCHLAND</span>
             <h2>Deutscher Markt wächst substanziell</h2>
           </figcaption>
           <div className="area-growth-callouts">
@@ -109,47 +108,9 @@ export default function MarketPage() {
           </p>
         </figure>
 
-        <figure className="data-panel development-chart">
-          <figcaption>
-            <span className="section-kicker">CHART A · DEUTSCHLAND</span>
-            <h2>Marktentwicklung 2025 → 2026</h2>
-          </figcaption>
-          <div className="development-list">
-            {germanyDevelopment.map((metric) => (
-              <div className="development-metric" key={metric.label}>
-                <h3>{metric.label}</h3>
-                <div className="comparison-row">
-                  <span>2025</span>
-                  <div className="bar-track">
-                    <span
-                      className="bar-fill previous"
-                      style={{ width: `${metric.previousWidth}%` }}
-                    />
-                  </div>
-                  <strong>{metric.previous}</strong>
-                </div>
-                <div className="comparison-row">
-                  <span>2026</span>
-                  <div className="bar-track">
-                    <span
-                      className="bar-fill current"
-                      style={{ width: `${metric.currentWidth}%` }}
-                    />
-                  </div>
-                  <strong>{metric.current}</strong>
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="source-note">
-            Quelle: CBRE / Verband deutscher Self Storage Unternehmen,
-            Branchenreport 2026
-          </p>
-        </figure>
-
         <figure className="data-panel market-scale-panel">
           <figcaption>
-            <span className="section-kicker">CHART B · DEUTSCHER MARKT</span>
+            <span className="section-kicker">CHART 03 · MARKTGRÖSSE &amp; PENETRATIONSRESERVE</span>
             <h2>Substanzielle Größe. Weiterhin hohe Penetrationsreserve.</h2>
           </figcaption>
           <dl className="market-scale-grid">
@@ -171,6 +132,10 @@ export default function MarketPage() {
               </div>
             ))}
           </div>
+          <div className="market-growth-callout">
+            <strong>219 → 231 €/m²/Jahr</strong>
+            <span>Erlös je verfügbarer Fläche (2025→2026)</span>
+          </div>
           <p className="source-note">
             Quelle: CBRE / Verband deutscher Self Storage Unternehmen,
             Branchenreport 2026
@@ -179,7 +144,7 @@ export default function MarketPage() {
 
         <figure className="data-panel price-chart">
           <figcaption>
-            <span className="section-kicker">CHART C · PREISBENCHMARKS</span>
+            <span className="section-kicker">CHART 04 · PREISBENCHMARK AUSGEWÄHLTER MÄRKTE</span>
             <h2>Bewertungsmiete bewusst unter den Vergleichswerten</h2>
             <p>Monatliche Nettomiete je m², Jahreswerte auf Monate umgerechnet.</p>
           </figcaption>
@@ -201,12 +166,15 @@ export default function MarketPage() {
             ))}
           </div>
           <div className="market-growth-callout">
-            <strong>+5,4 %</strong>
-            <span>Mietniveau Europa 2025</span>
+            <strong>26,05 €/m²/Monat</strong>
+            <span>Europa-Durchschnitt 2025 · 312,56 €/m²/Jahr</span>
+            <small>Mietniveau Europa 2025: +5,4 %</small>
           </div>
           <p className="chart-caveat">
-            Vergleichsmärkte dienen der Plausibilisierung und
-            Potenzialbetrachtung und stellen keine Kiel-Prognose dar.
+            Die KIELSPACE-Bewertungsmiete von 19,50 €/m²/Monat liegt unter allen
+            dargestellten Vergleichsmärkten. Internationale Werte dienen
+            ausschließlich der Plausibilisierung und Potenzialbetrachtung und
+            stellen keine Kiel-Prognose dar.
           </p>
           <p className="source-note">
             Quellen: CBRE / VdSSU Branchenreport 2026; FEDESSA / CBRE European
@@ -216,7 +184,7 @@ export default function MarketPage() {
 
         <figure className="data-panel uk-panel">
           <figcaption>
-            <span className="section-kicker">CHART D · REFERENZMARKT UK</span>
+            <span className="section-kicker">CHART 05 · REFERENZMARKT UK</span>
             <h2>Reifer Markt mit digitalisiertem Betrieb</h2>
           </figcaption>
           <dl className="uk-kpi-grid">

@@ -1215,6 +1215,13 @@ a {
   font-size: 12px;
 }
 
+.market-growth-callout small {
+  display: block;
+  margin-top: 6px;
+  color: var(--teal);
+  font-size: 11px;
+}
+
 .chart-caveat {
   margin: 0;
   color: var(--muted);

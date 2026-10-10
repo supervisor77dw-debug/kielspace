@@ -3,30 +3,6 @@ import type { ContentSection } from "./types";
 export const marketIntroduction =
   "KIELSPACE verbindet einen professionell vorbereiteten Markteintritt mit bewusst konservativen Bewertungsannahmen. Die bisherige Analyse zeigt einen etablierten europäischen Self-Storage-Markt, einen weiterhin weniger durchdrungenen deutschen Markt und für Kiel ein plausibles Nachfrage- und Preisumfeld.";
 
-export const germanyDevelopment = [
-  {
-    label: "Belegung",
-    previous: "75,0 %",
-    current: "76,3 %",
-    previousWidth: 75,
-    currentWidth: 76.3,
-  },
-  {
-    label: "Durchschnittsmiete",
-    previous: "292 €/m²/Jahr",
-    current: "302 €/m²/Jahr",
-    previousWidth: 73,
-    currentWidth: 75.5,
-  },
-  {
-    label: "Erlös je verfügbarer Fläche",
-    previous: "219 €/m²/Jahr",
-    current: "231 €/m²/Jahr",
-    previousWidth: 73,
-    currentWidth: 77,
-  },
-] as const;
-
 export const historicalMarketDevelopment = [
   { year: "2022", occupancy: "76,0 %", occupancyWidth: 76, rent: "289 €", rentWidth: 92.6 },
   { year: "2023", occupancy: "74,0 %", occupancyWidth: 74, rent: "281,37 €", rentWidth: 90.2 },
@@ -66,41 +42,41 @@ export const europeanPriceBenchmarks = [
     label: "KIELSPACE Bewertungsmiete",
     value: "19,50 €",
     detail: "netto/Monat",
-    width: 72.9,
+    width: 62.4,
     project: true,
   },
   {
     label: "Niederlande 2025",
     value: "20,25 €",
     detail: "243 €/Jahr",
-    width: 75.7,
+    width: 64.8,
     project: false,
   },
   {
     label: "Deutschland 2025",
     value: "24,33 €",
     detail: "292 €/Jahr",
-    width: 91,
+    width: 77.9,
     project: false,
   },
   {
     label: "Frankreich 2025",
     value: "24,50 €",
     detail: "294 €/Jahr",
-    width: 91.6,
-    project: false,
-  },
-  {
-    label: "Europa 2025",
-    value: "26,05 €",
-    detail: "312,56 €/Jahr",
-    width: 97.4,
+    width: 78.4,
     project: false,
   },
   {
     label: "Irland 2025",
     value: "26,75 €",
     detail: "321 €/Jahr",
+    width: 85.6,
+    project: false,
+  },
+  {
+    label: "UK 2025",
+    value: "31,25 €",
+    detail: "375 €/Jahr",
     width: 100,
     project: false,
   },
